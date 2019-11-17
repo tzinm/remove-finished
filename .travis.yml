@@ -18,7 +18,7 @@ jobs:
         - docker build --no-cache -t ${DOCKERHUB}:${TRAVIS_COMMIT} .
         - docker tag ${DOCKERHUB}:${TRAVIS_COMMIT} ${DOCKERHUB}:latest
         # Login to DockerHub
-        - docker login -u $DOCKERUSER --password-stdin <(echo $DOCKERPASS)
+        - echo $DOCKERPASS | docker login -u $DOCKERUSER --password-stdin
         # Push all of the tags
         - docker push ${DOCKERHUB}:${TRAVIS_COMMIT}
         - docker push ${DOCKERHUB}:latest
