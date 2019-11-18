@@ -1,10 +1,4 @@
-FROM linuxserver/transmission
+FROM scratch
 
-
-COPY autoremove.sh /defaults/
-
-RUN \
-  printf "%s\n%s\n" \
-  "#run autoremove script when we create our container" \
-  "@reboot /defaults/autoremove.sh" \
-  >> /etc/crontabs/root
+# copy local files
+COPY root/ /
