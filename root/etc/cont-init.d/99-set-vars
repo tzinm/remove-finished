@@ -1,0 +1,17 @@
+#!/usr/bin/with-contenv bash
+
+# write variables to file for cron access
+echo "AUTHENABLE=\"$AUTHENABLE\" USER=\"$USER\" PASS=\"$PASS\"" > /default/variables.txt
+
+if [[ $AUTOREMOVE = "yes" ]]; then
+  for i in daily weekly monthly; do
+    rm -rf /etc/periodic/"$i"/transmission_remove_finished.sh
+  done
+  if [[ $CRONDATE =~ ^(daily|weekly|monthly)$ ]]; then
+    ln -s /default/transmission_remove_finished.sh /etc/periodic/"$CRONDATE"/transmission_remove_finished.sh
+    echo "Script is set to run ${CRONDATE}."
+  else
+    ln -s /default/transmission_remove_finished.sh /etc/periodic/monthly/transmission_remove_finished.sh
+    echo "CRONDATE variable is not set. Script will run monthly."
+  fi
+fi
