@@ -8,10 +8,10 @@ if [[ $AUTOREMOVE = "yes" ]]; then
     rm -rf /etc/periodic/"$i"/transmission_remove_finished.sh
   done
   if [[ $CRONDATE =~ ^(daily|weekly|monthly)$ ]]; then
-    ln -s /default/transmission_remove_finished.sh /etc/periodic/"$CRONDATE"/transmission_remove_finished.sh
+    ln -s /defaults/transmission_remove_finished.sh /etc/periodic/"$CRONDATE"/transmission_remove_finished.sh
     echo "Script is set to run ${CRONDATE}."
   else
-    ln -s /default/transmission_remove_finished.sh /etc/periodic/monthly/transmission_remove_finished.sh
+    ln -s /defaults/transmission_remove_finished.sh /etc/periodic/monthly/transmission_remove_finished.sh
     echo "CRONDATE variable is not set. Script will run monthly."
   fi
 fi
