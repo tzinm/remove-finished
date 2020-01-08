@@ -25,3 +25,7 @@ Moreover use [linuxserver/transmission](https://hub.docker.com/r/linuxserver/tra
 | `-e AUTHENABLE=yes`   | When **user** and **pass** have been defined and **autoremove** is enabled, this parameter has to be activated. |
 | `-e CRONDATE=monthly` | Specify when torrents have to be removed. Options are: **monthly**, **weekly** or **daily**. **Monthly** is defined by default. |
 
+For more information about DOCKER MODS:
+
+* [Customizing Linuxserver Containers](https://blog.linuxserver.io/2019/09/14/customizing-our-containers/)
+* [Docker-mods](https://github.com/linuxserver/docker-mods)
