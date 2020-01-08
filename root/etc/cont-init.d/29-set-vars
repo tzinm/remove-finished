@@ -14,4 +14,5 @@ if [[ $AUTOREMOVE = "yes" ]]; then
     ln -s /defaults/transmission_remove_finished.sh /etc/periodic/monthly/transmission_remove_finished
     echo "CRONDATE variable is not set. Script will run monthly."
   fi
+  chmod u+x /defaults/transmission_remove_finished.sh
 fi
